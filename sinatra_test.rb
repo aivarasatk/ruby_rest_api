@@ -1,22 +1,25 @@
 require 'sinatra/base'
+require 'json'
 require_relative 'DTO/LanguageDTO'
+require_relative 'Services/LanguageService'
+require_relative 'Services/ValidationService'
 
 class RequestHelper < Sinatra::Application
+	attr_reader :languageService
+	attr_reader :validationSerivice
+	
+	def initialize
+		@languageService = LanguageService.new
+		@validationSerivice = ValidationService.new
+	end
 	
 	get '/languages' do
-		#return all languages that are:
-		# * object-oriented
-		# * supported by popular editors
-		# * are released in selected year
-		isOOP = params['oop']
-		editor = params['supported_editor']
-		releaseYear = params['release_year']
-		
-		if isOOP==nil && editor==nil && releaseYear==nil then
-			'all'#return all
+		isStronglyType = params['strongly_typed']
+		releaseYear = params['release_year'].to_i
+		if releaseYear==nil && isStronglyType == nil then
+			languageService.getAllAsJson
 		else
-			#match all languages by given params
-			'matched'
+			languageService.getMatches(releaseYear, isStronglyType)
 		end
 	end
 	
