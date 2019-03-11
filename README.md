@@ -3,13 +3,22 @@ A project for a web services
 
 Possible prerequisites:
 ruby
+
 sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
+
 sudo apt-get install make
+
 sudo gem install thin
+
 sudo gem install sinatra
+
 sudo gem install json
 
+sudo gem install primalize
+
+
 lauch the the app with this line(locally(ports must be forwarded to 8080))(from root):
+
 thin -R config.ru start -e production -p 8080
 
 
