@@ -31,9 +31,3 @@ COPY . /usr/app
 RUN bundle install
 
 CMD ["thin", "-R", "config.ru", "start", "-e", "production", "-p", "5000"]
-
-
-
-
-
-
