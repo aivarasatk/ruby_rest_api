@@ -1,5 +1,3 @@
-require 'json'
-
 class LanguageDTO
 
 	attr_accessor :id
@@ -35,8 +33,21 @@ class LanguageDTO
 	  'strongly_typed' => strongly_typed
 	}.to_json(*args)
 	end
+	
+	def to_hash
+		{
+		  'id' => id,
+		  'language' => language,
+		  'is_object_oriented' => is_object_oriented,
+		  'reserved_words' => reserved_words,
+		  'popular_editor' => popular_editor,
+		  'release_year' => release_year,
+		  'creator' => creator,
+		  'strongly_typed' => strongly_typed
+		}
+	end
 
-	def self.json_create(h)
+	def self.from_json(h)
 	new(h['id'], h['language'], h['is_object_oriented'], h['reserved_words'],
 		h['popular_editor'], h['release_year'], h['creator'], h['strongly_typed'])
 	end
