@@ -1,28 +1,24 @@
 # ruby_rest_api
 A project for a web services
 
-Possible prerequisites:
-ruby
+## Create docker image:
 
-sudo apt-get install build-essential patch ruby-dev zlib1g-dev liblzma-dev
+sudo docker build -t ruby-image -f ruby-thin-image .
 
-sudo apt-get install make
+## Run docker image:
 
-sudo gem install thin
+sudo docker run -d -p 80:5000 ruby-image
 
-sudo gem install sinatra
+## Access the app
+(change the port to match your machine) <br>
+http://193.219.91.103:6725/languages
 
-sudo gem install json
-
-sudo gem install primalize
-
-
-lauch the the app with this line(locally(ports must be forwarded to 8080))(from root):
+# dev:
 
 thin -R config.ru start -e production -p 8080
 
 
-Image file:
+## Image file:
 
 FROM alpine:latest
 
