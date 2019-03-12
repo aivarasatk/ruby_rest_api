@@ -1,8 +1,9 @@
 # ruby_rest_api
 A project for a web services
 
+## Clone the app
+git clone https://github.com/aivarasatk/ruby_rest_api.git <br>
 ## Create docker image:
-git clone https://github.com/aivarasatk/ruby_rest_api.git
 sudo docker build -t ruby-image -f ruby-thin-image .
 
 ## Run docker image:
