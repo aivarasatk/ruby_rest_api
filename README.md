@@ -2,7 +2,7 @@
 A project for a web services
 
 ## Create docker image:
-
+git clone https://github.com/aivarasatk/ruby_rest_api.git
 sudo docker build -t ruby-image -f ruby-thin-image .
 
 ## Run docker image:
