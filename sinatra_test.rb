@@ -42,6 +42,10 @@ class RequestHelper < Sinatra::Application
 			response.body = '{"message":"Invalid id"}'
 		end
 	end
+		
+	post '/languages/:id' do
+		status 405	
+	end
 	
 	post '/languages' do
 		bodyJson = ""
@@ -81,6 +85,10 @@ class RequestHelper < Sinatra::Application
 		
 	end
 	
+	delete '/languages' do
+		status 405	
+	end
+	
 	put '/languages/:id' do
 		response.headers['Content-Type'] = "application/json"
 		begin
@@ -105,6 +113,10 @@ class RequestHelper < Sinatra::Application
 			response.body = '{"message":"Invalid request"}'
 		end
 		
+	end
+			
+	put '/languages' do
+		status 405		
 	end
 	
 	run! if app_file == $0
