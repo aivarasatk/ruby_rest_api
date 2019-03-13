@@ -98,7 +98,7 @@ class RequestHelper < Sinatra::Application
 			bodyJson = JSON.parse request.body.read
 			
 			if validationSerivice.isPutDataValid(id, bodyJson) then
-				if languageService.updateLanguage(bodyJson) then
+				if languageService.updateLanguage(bodyJson, id) then
 					response.body = '{"message":"Item updated"}'
 				else
 					status 400
