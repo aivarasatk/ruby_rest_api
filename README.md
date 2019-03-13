@@ -16,8 +16,8 @@ sudo docker run -d -p 80:5000 ruby-image
 (change the port to match your machine) <br>
 url/languages
 
-POST url/languages
-GET url/languages
-PUT url/languages/id
-DELETE url/languages/id
+POST url/languages <br>
+GET url/languages <br>
+PUT url/languages/id <br>
+DELETE url/languages/id <br>
 
