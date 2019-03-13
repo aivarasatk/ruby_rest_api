@@ -20,10 +20,10 @@ class ValidationService
 	end
 	
 	def isPutDataValid(id, putDataHash)
-		if id != putDataHash['id'] then
+		if putDataHash.has_key?("id") then
 			return false
 		end
-		return validatePutJson(putDataHash)
+		return validatePostJson(putDataHash)
 		
 	end
 	
