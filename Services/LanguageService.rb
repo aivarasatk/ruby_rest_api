@@ -76,9 +76,10 @@ class LanguageService
 		false
 	end
 	
-	def updateLanguage(languageHash)
+	def updateLanguage(languageHash, id)
 		@languages.each_index{ |i|
-			if @languages[i].id == languageHash['id'] then
+			if @languages[i].id == id then
+				languageHash['id'] = id
 				@languages[i] = LanguageDTO.from_json(languageHash)
 				return true
 				break
