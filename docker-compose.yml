@@ -1,0 +1,7 @@
+web:
+ build: .
+ command: ruby sinatra_test.rb
+ ports:
+  - 80:5000
+ volumes:
+  - .:/code
