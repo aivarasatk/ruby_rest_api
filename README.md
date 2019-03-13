@@ -12,28 +12,10 @@ sudo docker run -d -p 80:5000 ruby-image
 
 ## Access the app
 (change the port to match your machine) <br>
-http://193.219.91.103:6725/languages
+url/languages
 
-# dev:
+POST url/languages
+GET url/languages
+PUT url/languages/id
+DELETE url/languages/id
 
-thin -R config.ru start -e production -p 8080
-
-
-## Image file:
-
-FROM alpine:latest
-
-RUN apk update && apk upgrade &&  apk add --update ruby-dev build-base \
-  libxml2-dev libxslt-dev pcre-dev libffi-dev \
-  mariadb-dev postgresql-dev
-
-RUN apk add ruby ruby-bundler
-
-RUN mkdir /usr/app
-WORKDIR /usr/app
-
-COPY . /usr/app
-
-RUN bundle install
-
-CMD ["thin", "-R", "config.ru", "start", "-e", "production", "-p", "5000"]
