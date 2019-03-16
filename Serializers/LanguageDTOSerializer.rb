@@ -6,9 +6,9 @@ class LanguageDTOSerializer < Primalize::Single
 		language: string,
 		is_object_oriented: boolean,
 		reserved_words: array(string),
-		popular_editor: string,
-		release_year: integer,
-		creator: string,
+		popular_editor: optional(string),
+		release_year: optional(integer),
+		creator: optional(string),
 		strongly_typed: boolean,
 	)
 end

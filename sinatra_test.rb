@@ -60,12 +60,16 @@ class RequestHelper < Sinatra::Application
 		end
 		
 		if validationSerivice.isPostDataValid(bodyJson) then
-			nextId = languageService.addLanguage(bodyJson)
+			nextId = Array(languageService.addLanguage(bodyJson))
 			response.body = "{\"message\": \"New item(s) can be accessed using the id(s)\", \"id\":#{nextId}}"
+			
+			url = request.host_with_port + "/languages"
+			response.headers['Location'] = nextId.map { |id| "#{url}/#{id}" }.join(",")
 		else
 			status 400
 			response.body = '{"message":"Request body does not meet the criteria"}'
 		end
+		return
 	end
 	
 	delete '/languages/:id' do
@@ -96,21 +100,28 @@ class RequestHelper < Sinatra::Application
 			
 			request.body.rewind
 			bodyJson = JSON.parse request.body.read
-			
-			if validationSerivice.isPutDataValid(id, bodyJson) then
-				if languageService.updateLanguage(bodyJson, id) then
-					response.body = '{"message":"Item updated"}'
-				else
-					status 400
-					response.body = '{"message":"Failed to update item"}'
-				end
+		rescue
+			status 400
+			response.body ='{"message":"Failed to parse the payload or id"}'
+			return
+		end
+		
+		if !languageService.languageExists(id) then
+			status 400
+			response.body ='{"message":"Language with id does not exist"}'
+			return
+		end
+		
+		if validationSerivice.isPutDataValid(id, bodyJson) then
+			if languageService.updateLanguage(bodyJson, id) then
+				response.body = '{"message":"Item updated"}'
 			else
 				status 400
-				response.body = '{"message":"Invalid body or id mismatch"}'
+				response.body = '{"message":"Failed to update item"}'
 			end
-		rescue
-			status 404
-			response.body = '{"message":"Invalid request"}'
+		else
+			status 400
+			response.body = '{"message":"Invalid body"}'
 		end
 		
 	end

@@ -88,4 +88,13 @@ class LanguageService
 		false
 	end
 	
+	def languageExists(id)
+		@languages.each{ |language|
+			if language.id == id then
+				return true
+			end
+		}
+		false
+	end
+	
 end
