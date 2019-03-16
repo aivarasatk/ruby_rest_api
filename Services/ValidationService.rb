@@ -4,60 +4,27 @@ require_relative '../Serializers/LanguageDTOSerializer'
 require 'json'
 
 class ValidationService
-	#checks if POST json is valid for usage
-	#checks if GET params are valid
+
 	def isPostDataValid(postDataHash)
 		if postDataHash.is_a? Array then
 			postDataHash.each{ |data|
-				if !validatePostJson(data) then
+				if !validateRequestJson(data) then
 					return false
 				end
 			}
 			return true
 		else
-			return validatePostJson(postDataHash)
+			return validateRequestJson(postDataHash)
 		end
 	end
 	
 	def isPutDataValid(id, putDataHash)
-		if putDataHash.has_key?("id") then
-			return false
-		end
-		return validatePostJson(putDataHash)
-		
+		return validateRequestJson(putDataHash)
 	end
 	
-	def validatePutJson(dataHash)
-		languageJson = LanguageDTO.new(nil, nil, nil, nil, nil, nil, nil, nil).to_hash
-		
-		if dataHash.size == languageJson.size then
-			languageKeys = languageJson.keys
-			languageKeys.each{ |key|
-				if !dataHash.has_key?(key) then
-					return false
-				end
-			}
-			return checkTypes(dataHash)
-		else
-			false
-		end
-	end
-	
-	def validatePostJson(dataHash)
-		languageJson = LanguageDTO.new(nil, nil, nil, nil, nil, nil, nil, nil).to_hash
-		
-		if dataHash.size == languageJson.size-1 then
-			languageKeys = languageJson.keys
-			languageKeys.each{ |key|
-				if key != "id" && !dataHash.has_key?(key) then
-					return false
-				end
-			}
-			dataHash['id'] = 0
-			return checkTypes(dataHash)
-		else
-			false
-		end
+	def validateRequestJson(dataHash)
+		dataHash['id'] = 0
+		return checkTypes(dataHash)
 	end
 	
 	def checkTypes(dataHash)

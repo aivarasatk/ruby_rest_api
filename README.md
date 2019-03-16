@@ -1,23 +1,15 @@
 # ruby_rest_api
 A project for a web services
 
-## Clone the app
+## Instalation with docker
 git clone https://github.com/aivarasatk/ruby_rest_api.git <br>
-
-sudo docker-compose up --build -d
-
-sudo docker start rubyrestapi_web_1
-
-## Run docker image:
-
-sudo docker run -d -p 80:5000 ruby-image
+sudo docker-compose up --build -d <br>
+sudo docker start rubyrestapi_web_1 <br>
 
 ## Access the app
-(change the port to match your machine) <br>
-url/languages
-
-POST url/languages <br>
-GET url/languages <br>
-PUT url/languages/id <br>
-DELETE url/languages/id <br>
+POST {url}/languages <br>
+GET {url}/languages <br>
+GET {url}/languages/{id} <br>
+PUT {url}/languages/{id} <br>
+DELETE {url}/languages/{id} <br>
 
