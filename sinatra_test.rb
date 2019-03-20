@@ -129,6 +129,44 @@ class RequestHelper < Sinatra::Application
 	put '/languages' do
 		status 405		
 	end
+			
+	patch '/languages' do
+		status 405
+	end
+	
+	patch '/languages/:id' do
+		response.headers['Content-Type'] = "application/json"
+		begin
+			id = Integer(params['id'])
+			
+			request.body.rewind
+			bodyJson = JSON.parse request.body.read
+		rescue
+			status 400
+			response.body ='{"message":"Failed to parse the payload or id"}'
+			return
+		end
+		
+		if !languageService.languageExists(id) then
+			status 400
+			response.body ='{"message":"Language with id does not exist"}'
+			return
+		end
+		
+		if validationSerivice.isPatchDataValid(bodyJson) then
+			if languageService.patchLanguage(bodyJson, id) then
+				response.body = '{"message":"Item updated"}'
+			else
+				status 400
+				response.body = '{"message":"Failed to update item"}'
+			end
+		else
+			status 400
+			response.body = '{"message":"Invalid body"}'
+		end
+	end
+		
+	
 	
 	run! if app_file == $0
 end
