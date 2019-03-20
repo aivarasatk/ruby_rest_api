@@ -82,7 +82,20 @@ class LanguageService
 				languageHash['id'] = id
 				@languages[i] = LanguageDTO.from_json(languageHash)
 				return true
-				break
+			end
+		}
+		false
+	end
+		
+	def patchLanguage(patchLanguageHash, id)
+		@languages.each_index{ |i|
+			if @languages[i].id == id then
+				languageHash = @languages[i].to_hash
+				patchLanguageHash.each{|key, value|
+					languageHash[key] = value
+				}
+				@languages[i] = LanguageDTO.from_json(languageHash)
+				return true
 			end
 		}
 		false
