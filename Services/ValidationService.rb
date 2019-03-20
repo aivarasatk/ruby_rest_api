@@ -21,6 +21,20 @@ class ValidationService
 	def isPutDataValid(id, putDataHash)
 		return validateRequestJson(putDataHash)
 	end
+
+	def isPatchDataValid(putDataHash)
+		if putDataHash.key?('id') then
+			return false
+		end
+			
+		languageKeys = LanguageDTO.new(nil,nil,nil,nil,nil,nil,nil,nil).to_hash
+		putDataHash.each{ |key, value|
+			if !languageKeys.key?(key) then
+				return false
+			end
+		}
+		true
+	end
 	
 	def validateRequestJson(dataHash)
 		dataHash['id'] = 0
