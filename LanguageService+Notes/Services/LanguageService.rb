@@ -118,6 +118,23 @@ class LanguageService
 		}
 	end
 	
+	def languageHasNoteTitle(id, title)
+		@languages.each{ |language|
+			if language.id == id  && language.notes.include?(title) then
+				return true
+			end
+		}
+		false
+	end
+	
+	def removeNoteForLanguage(title, id)
+		@languages.each{ |language|
+			if language.id == id then
+				language.removeNote(title)
+			end
+		}
+	end
+	
 	def languageExists(id)
 		@languages.each{ |language|
 			if language.id == id then
