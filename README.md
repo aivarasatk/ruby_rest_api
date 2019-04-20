@@ -17,7 +17,7 @@ DELETE {url}/languages/{id} <br>
 *  Successful POST example: <br>
 ```javascript
 {
-        //note: do not supply an id
+        //note: do not provide an id
         "language": "Pythoniukas",
         "is_object_oriented": true,
         "reserved_words": [
