@@ -170,7 +170,43 @@ class RequestHelper < Sinatra::Application
 		
 	end
 	
+	delete '/languages/:id/notes/:noteTitle' do
+		response.headers['Content-Type'] = "application/json"
+		title = params['noteTitle']
+		begin
+			id = Integer(params['id'])
+			if languageService.languageExists(id) && languageService.languageHasNoteTitle(id, params['noteTitle']) then
+				begin
+					res = notesService.deleteNote(title)
+					if res.code.to_i == 200 then
+						languageService.removeNoteForLanguage(title, id)
+						status 200
+						response.body = '{"message":"Successfully removed note"}'
+					else
+						status res.code.to_i
+						response.body = "{\"message\":\"#{res.message}\"}"
+					end
+				rescue
+					status 500
+					response.body = '{"message":"Could not get a response from service"}'
+					return
+				end
+			else
+				status 404
+				response.body = '{"message":"Id or note title does not exist"}'
+			end
+		rescue
+			status 404
+			response.body = '{"message":"Invalid id"}'
+		end
+		
+	end
+	
 	delete '/languages' do
+		status 405	
+	end
+	
+	delete '/languages/:id/notes' do
 		status 405	
 	end
 	

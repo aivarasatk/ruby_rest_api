@@ -64,4 +64,8 @@ class LanguageDTO
 	def addNote(title)
 		notes.push(title)
 	end
+	
+	def removeNote(title)
+		notes.delete(title)
+	end
 end

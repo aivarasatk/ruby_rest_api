@@ -27,4 +27,14 @@ class NotesService
 		end
 		res
 	end
+	
+	def deleteNote(title)
+		uri = URI(@@notesUrl + '/' + title)
+
+		req = Net::HTTP::Delete.new(uri)
+		res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+		  http.request(req)
+		end
+		res
+	end
 end
