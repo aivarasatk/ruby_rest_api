@@ -1,7 +1,14 @@
-web:
- build: .
- command: python app.py
- ports:
-  - 80:5000
- volumes:
-  - .:/code
+networks:
+  default:
+    external:
+      name: ws_bridge
+      
+services:
+ web:
+  build: .
+  command: python app.py
+  ports:
+   - "5009:5009"
+  volumes:
+   - .:/code
+  container_name: usr

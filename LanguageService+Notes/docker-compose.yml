@@ -1,7 +1,14 @@
-web:
- build: .
- command: thin -R config.ru start -e production -p 5000
- ports:
-  - 80:5000
- volumes:
-  - .:/code
+services:
+ web:
+  build: .
+  command: thin -R config.ru start -e production -p 5000
+  ports:
+   - 80:5000
+  volumes:
+   - .:/code
+  container_name: base
+
+networks:
+ default:
+  external:
+   name: ws_bridge
