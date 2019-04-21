@@ -5,7 +5,7 @@ echo -ne "\e[36mCreating a user-based network bridge\e[39m"
 docker network create ws_bridge
 tput cup 0 36
 echo -e "\e[36m. Done.\e[39m\e[K"
-cd WebServices/Pirmas
+cd NotesApi
 echo -e "\e[?1049h"
 tput cup 0 0
 echo -e "\e[36mCreating a user-based network bridge. Done.\e[39m"
@@ -19,7 +19,6 @@ tput ed
 echo -e "\e[36mLaunching user service. Done.\e[39m"
 tput cup 2 0
 tput ed
-cd ..
 cd ..
 echo -e "\e[?1049h"
 tput cup 0 0
