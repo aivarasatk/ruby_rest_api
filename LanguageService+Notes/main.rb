@@ -14,6 +14,9 @@ class RequestHelper < Sinatra::Application
 		@languageService = LanguageService.new
 		@validationSerivice = ValidationService.new
 		@notesService = NotesService.new
+		
+		# ?embedded=notes grazina all
+		# default data
 	end
 	
 	get '/languages' do
