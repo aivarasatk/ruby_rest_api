@@ -5,11 +5,7 @@ Notes are managed using another service SOA (https://github.com/plssts/SOA)<br>
 Original service is expanded with a array of note titles<br>
 
 # Launch services
-Clone this repository with git clone https://github.com/aivarasatk/ruby_rest_api <br>
-
-Navigate to LanguageService+Notes/2 and execute ./init.sh. This will build and link all needed services. You might need to provide necessary permissions to execute the file with chmod +x init.sh. <br>
-
-It is recommended to execute ./cleanup.sh (again, make this file executable with chmod +x cleanup.sh if needed) after finishing using the service. This will stop running services, remove the dedicated network bridge and clean images. <br>
+docker-compose up --build -d <br>
 
 ## Access the app
 All previous paths plus: <br>
