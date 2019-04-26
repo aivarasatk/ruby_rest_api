@@ -16,7 +16,7 @@ DELETE {url}/languages/{id}/notes/{note_title} <br>
 ## Successful notes POST example: <br>
 ```javascript
 {
-    "title":"rev",
+    "title":"newTitle",
     "author":"aiv",
     "comment":"new one",
     "expiration": "2020-12-12"

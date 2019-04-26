@@ -17,7 +17,7 @@ services:
     build: NotesApi
     command: python app.py
     ports:
-    - 5009:5009
+    - 6969:6969
     networks:
     - net199
 
