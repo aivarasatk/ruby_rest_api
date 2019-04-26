@@ -4,7 +4,7 @@ services:
     build: .
     command: thin -R config.ru start -e production -p 5000
     ports:
-    - "80:5000"
+    - 80:5000
     links:
     - "friendservice99"
     depends_on:

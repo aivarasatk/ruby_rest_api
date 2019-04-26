@@ -17,6 +17,11 @@ class RequestHelper < Sinatra::Application
 		
 		# ?embedded=notes grazina all
 		# default data
+		languageService.addNoteForLanguage(1, 'default1')
+		languageService.addNoteForLanguage(1, 'default2')
+		
+		languageService.addNoteForLanguage(2, 'default21')
+		languageService.addNoteForLanguage(2, 'default22')
 	end
 	
 	get '/languages' do
