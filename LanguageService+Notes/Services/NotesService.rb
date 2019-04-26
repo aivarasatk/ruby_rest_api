@@ -1,6 +1,6 @@
 require 'net/http'
 class NotesService
-	@@notesUrl = 'http://friendservice99:6969/notes'
+	@@notesUrl = 'http://193.219.91.103:6725/notes'
 	
 	def getNotesForLanguageId(id)
 		urlWithId = @@notesUrl + "/" + id
