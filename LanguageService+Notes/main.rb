@@ -14,17 +14,57 @@ class RequestHelper < Sinatra::Application
 		@languageService = LanguageService.new
 		@validationSerivice = ValidationService.new
 		@notesService = NotesService.new
+		
+		# ?embedded=notes grazina all
+		# default data
+		
+		notesService.postNote(defaultData('default1'))
+		languageService.addNoteForLanguage(1, 'default1')
+		notesService.postNote(defaultData('default2'))
+		languageService.addNoteForLanguage(1, 'default2')
+		
+		notesService.postNote(defaultData('default21'))
+		languageService.addNoteForLanguage(2, 'default21')
+		notesService.postNote(defaultData('default22'))
+		languageService.addNoteForLanguage(2, 'default22')
 	end
 	
 	get '/languages' do
-		isStronglyType = params['strongly_typed']
-		releaseYear = params['release_year'].to_i
+		embedded = params['embedded']
 		
 		response.headers['Content-Type'] = "application/json"
-		if params['release_year']==nil && params['strongly_typed'] == nil then
-			response.body = languageService.getAllAsJson
+		if embedded == 'notes' then
+			languages = languageService.getLanguages
+			languagesAndNotes = languages.map(&:clone)
+			languages.each{ |language|
+				notes = []
+				noteTitles = language.notes
+				noteTitles.each{ |title|
+					begin
+						res = notesService.getNoteForTitle(title)
+						if res.code.to_i == 200 then
+							resData = (JSON.parse res.body)['data']
+							notes.push(resData)
+						end
+					rescue
+						status 500
+						response.body = '{"message":"Could not get a response from service"}'
+						return
+					end
+				}
+				
+				languagesAndNotes.each{ |withNotes|
+					if withNotes.id == language.id then
+						withNotes.notes = notes
+					end
+				}
+				
+			}
+			status 200
+			response.body = JSON.generate languagesAndNotes
 		else
-			response.body = languageService.getMatches(releaseYear, isStronglyType)
+			status 200
+			response.body = languageService.getAllAsJson
 		end
 	end
 	
@@ -291,7 +331,9 @@ class RequestHelper < Sinatra::Application
 	end
 			
 	
-	
+	def defaultData(title)
+		'{"title":"' + title + '","author":"aiv","comment":"new one","expiration":"2020-12-12"}'
+	end
 	
 	run! if app_file == $0
 end

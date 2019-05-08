@@ -13,6 +13,9 @@ class LanguageService
 		@uniqueId = @languages.length
 	end
 	
+	def getLanguages
+		languages
+	end
 	def getAllAsJson
 		objectJsonArray = []
 		@languages.each{ |language|
