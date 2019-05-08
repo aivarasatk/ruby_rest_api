@@ -47,7 +47,8 @@ class RequestHelper < Sinatra::Application
 							notes.push(resData)
 						end
 					rescue
-						notes = []
+						message = {"messsage" => "Could not get a response from service"}
+						notes = [message]
 						break
 						# status 500
 						# response.body = '{"message":"Could not get a response from service"}'
