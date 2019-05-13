@@ -5,11 +5,11 @@ class LanguageDTOSerializer < Primalize::Single
 		id: integer,
 		language: string,
 		is_object_oriented: boolean,
-		reserved_words: array(string),
+		strongly_typed: boolean,
+		reserved_words: optional(array(string)),
 		popular_editor: optional(string),
 		release_year: optional(integer),
 		creator: optional(string),
-		strongly_typed: boolean,
 		notes: optional(array(string)),
 	)
 end
