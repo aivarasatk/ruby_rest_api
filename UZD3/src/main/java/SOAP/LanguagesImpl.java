@@ -70,10 +70,10 @@ public class LanguagesImpl implements Languages {
                 jsonPutString+= " \"language\" : \"" + language + "\",";
 
             if (is_object_oriented != null)
-                jsonPutString += "\"is_object_oriented\" : \"" + is_object_oriented + "\",";
+                jsonPutString += "\"is_object_oriented\" : " + is_object_oriented + ",";
 
             if (strongly_typed != null)
-                jsonPutString += "\"strongly_typed\" : \"" + strongly_typed + "\",";
+                jsonPutString += "\"strongly_typed\" : " + strongly_typed + ",";
 
             if(jsonPutString.endsWith(","))
             {
@@ -189,10 +189,10 @@ public class LanguagesImpl implements Languages {
                 jsonPutString+= " \"language\" : \"" + language + "\",";
 
             if (is_object_oriented != null)
-                jsonPutString += "\"is_object_oriented\" : \"" + is_object_oriented + "\",";
+                jsonPutString += "\"is_object_oriented\" : " + is_object_oriented.toString() + ",";
 
             if (strongly_typed != null)
-                jsonPutString += "\"strongly_typed\" : \"" + strongly_typed + "\",";
+                jsonPutString += "\"strongly_typed\" : " + strongly_typed + ",";
 
             if(jsonPutString.endsWith(","))
             {
