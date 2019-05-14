@@ -15,45 +15,34 @@ public class AddLanguage {
 
     @XmlElement(required = true, name = "language", namespace = "")
     private String language;
-    @XmlElement(required = true, name = "email", namespace = "")
-    private String email;
 
-    @XmlElement(required = true, name = "isObjectOriented", namespace = "")
-    private String isObjectOriented;
+    @XmlElement(required = true, name = "is_object_oriented", namespace = "")
+    private String is_object_oriented;
 
-    @XmlElement(required = true, name = "isStronglyTyped", namespace = "")
-    private String isStronglyTyped;
-
-    public String getIsObjectOriented() {
-        return isObjectOriented;
-    }
-
-    public void setIsObjectOriented(String isObjectOriented) {
-        this.isObjectOriented = isObjectOriented;
-    }
-
-    public String getIsStronglyTyped() {
-        return isStronglyTyped;
-    }
-
-    public void setIsStronglyTyped(String isStronglyTyped) {
-        this.isStronglyTyped = isStronglyTyped;
-    }
+    @XmlElement(required = true, name = "strongly_typed", namespace = "")
+    private String strongly_typed;
 
     public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(String name) {
-        this.language = name;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
-    public String getEmail() {
-        return email;
+    public String getIs_object_oriented() {
+        return is_object_oriented;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIs_object_oriented(String is_object_oriented) {
+        this.is_object_oriented = is_object_oriented;
     }
 
+    public String getStrongly_typed() {
+        return strongly_typed;
+    }
+
+    public void setStrongly_typed(String strongly_typed) {
+        this.strongly_typed = strongly_typed;
+    }
 }
