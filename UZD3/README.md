@@ -1,5 +1,7 @@
+#Service launch
+docker-compose up --build -d <br>
 
-grazina vieno zmogaus informacija
+grazina vienos kalbos  informacija
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
@@ -10,7 +12,7 @@ grazina vieno zmogaus informacija
     </S:Body>
 </S:Envelope>
 
-grazina visus zmones
+grazina visas kalbas
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
@@ -20,20 +22,21 @@ grazina visus zmones
     </S:Body>
 </S:Envelope>
 
-updatina zmogaus info
+updatina kalbos info
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
     <S:Body>
         <ns2:putLanguage xmlns:ns2="http://SOAP/">
         	<id>4</id>
-        	<name>new name</name>
-        	<email>new email</email>
+        	<language>newLang</language>
+        	<is_object_oriented>false</is_object_oriented>
+			<strongly_typed>false</strongly_typed>
         </ns2:putLanguage>
     </S:Body>
 </S:Envelope>
 
-istrina zmogu su jo related notes:
+istrina kalba su jo related notes:
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
@@ -44,19 +47,20 @@ istrina zmogu su jo related notes:
     </S:Body>
 </S:Envelope>
 
-prideti zmogu:
+prideti kalba:
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
     <S:Body>
         <ns2:addLanguage xmlns:ns2="http://SOAP/">
-        	<name>new name</name>
-        	<email>new name</email>
+        	<language>anotherNewLang</language>
+        	<is_object_oriented>true</is_object_oriented>
+			<strongly_typed>true</strongly_typed>
         </ns2:addLanguage>
     </S:Body>
 </S:Envelope>
 
-zmogaus notes:
+kalbos notes:
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
@@ -67,80 +71,40 @@ zmogaus notes:
     </S:Body>
 </S:Envelope>
 
-prideti note zmogui:
+prideti note kalbai:
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
     <S:Body>
         <ns2:addLanguageNote xmlns:ns2="http://SOAP/">
         	<id>1</id>
-        	<title>pavadinimas</title>
-        	<comment>komentaras</comment>
+        	<title>pavadinimas87</title>
+        	<comment>komentaras554</comment>
         	<expiration>laikas</expiration>
+			<author>authoras</author>
         </ns2:addLanguageNote>
     </S:Body>
 </S:Envelope>
 
-gauti viena nurodyta zmogaus note:
-
-<?xml version="1.0" ?>
-<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
-    <S:Body>
-        <ns2:getLanguageNote xmlns:ns2="http://SOAP/">
-        	<id>1</id>
-        	<title>pavadinimas</title>
-        	</ns2:getLanguageNote>
-    </S:Body>
-</S:Envelope>
-
-atnaujinti nurodyta zmogaus note (id, title):
-
-<?xml version="1.0" ?>
-<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
-    <S:Body>
-        <ns2:putLanguageNote xmlns:ns2="http://SOAP/">
-        	<id>1</id>
-        	<title>pavadinimas</title>
-        	<comment>komentaras</comment>
-        	<expiration>a</expiration>
-        	</ns2:putLanguageNote>
-    </S:Body>
-</S:Envelope>
-
-istrinti nurodyta zmogaus note:
+istrinti nurodyta kalbos note:
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
     <S:Body>
         <ns2:deleteLanguageNote xmlns:ns2="http://SOAP/">
-        	<id>2</id>
-        	<title>pavadinimas</title>
+        	<id>1</id>
+        	<title>default1</title>
         	</ns2:deleteLanguageNote>
     </S:Body>
 </S:Envelope>
 
-gauti visus zmones su ju notes:
+gauti visus kalbas su ju notes:
 
 <?xml version="1.0" ?>
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
     <S:Body>
-        <ns2:getLanguagesNotes xmlns:ns2="http://SOAP/">
-        	</ns2:getLanguagesNotes>
-    </S:Body>
-</S:Envelope>
-
-prideti zmogu kartu su note:
-
-<?xml version="1.0" ?>
-<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
-    <S:Body>
-        <ns2:addLanguageWithNote xmlns:ns2="http://SOAP/">
-        	<name>vardas</name>
-        	<email>emailas</email>
-        	<title>pavadinimas</title>
-        	<comment>komentaras</comment>
-        	<expiration>a</expiration>
-        	</ns2:addLanguageWithNote>
+        <ns2:getLanguagesEmbedded xmlns:ns2="http://SOAP/">
+        	</ns2:getLanguagesEmbedded>
     </S:Body>
 </S:Envelope>
 
