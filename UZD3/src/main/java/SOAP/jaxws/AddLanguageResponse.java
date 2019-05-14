@@ -1,6 +1,7 @@
 
 package SOAP.jaxws;
 
+import SOAP.AddLanguageReturnMessage;
 import SOAP.returnMessage;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -15,22 +16,22 @@ import javax.xml.bind.annotation.XmlType;
 public class AddLanguageResponse {
 
     @XmlElement(name = "return", namespace = "")
-    private returnMessage _return;
+    private AddLanguageReturnMessage _return;
 
     /**
      *
      * @return
      *     returns String
      */
-    public returnMessage getReturn() {
+    public AddLanguageReturnMessage getReturn() {
         return this._return;
     }
 
-    public returnMessage get_return() {
+    public AddLanguageReturnMessage get_return() {
         return _return;
     }
 
-    public void set_return(returnMessage _return) {
+    public void set_return(AddLanguageReturnMessage _return) {
         this._return = _return;
     }
 
@@ -39,7 +40,7 @@ public class AddLanguageResponse {
      * @param _return
      *     the value for the _return property
      */
-    public void setReturn(returnMessage _return) {
+    public void setReturn(AddLanguageReturnMessage _return) {
         this._return = _return;
     }
 
