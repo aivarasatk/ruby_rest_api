@@ -19,7 +19,11 @@ public interface Languages {
 
 	@WebMethod AddLanguageReturnMessage addLanguage(@WebParam(name="language") String language,
 										 @WebParam(name="is_object_oriented") Boolean is_object_oriented,
-										 @WebParam(name="strongly_typed") Boolean strongly_typed);
+										 @WebParam(name="strongly_typed") Boolean strongly_typed,
+										@WebParam(name="reserved_words") String[] reserved_words,
+										@WebParam(name="popular_editor") String popular_editor,
+										@WebParam(name="release_year") Integer release_year,
+										@WebParam(name="creator") String creator);
 
 	@WebMethod returnMessage addLanguageNote( @WebParam(name="id") Integer id,
 											  @WebParam(name="title") String title,
@@ -35,5 +39,9 @@ public interface Languages {
 	@WebMethod returnMessage putLanguage( @WebParam(name="id") Integer id,
 										  @WebParam(name="language") String language,
 										  @WebParam(name="is_object_oriented") Boolean is_object_oriented,
-										  @WebParam(name="strongly_typed") Boolean strongly_typed);
+										  @WebParam(name="strongly_typed") Boolean strongly_typed,
+										  @WebParam(name="reserved_words") String[] reserved_words,
+										  @WebParam(name="popular_editor") String popular_editor,
+										  @WebParam(name="release_year") Integer release_year,
+										  @WebParam(name="creator") String creator);
 }

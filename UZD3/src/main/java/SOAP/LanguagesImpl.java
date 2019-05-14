@@ -6,6 +6,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.Arrays;
 
 //Service Implementation
 @WebService(endpointInterface = "SOAP.Languages")
@@ -59,7 +60,8 @@ public class LanguagesImpl implements Languages {
         return languageWithNoteTitles;
     }
 
-    public returnMessage putLanguage(Integer id, String language, Boolean is_object_oriented, Boolean strongly_typed) {
+    public returnMessage putLanguage(Integer id, String language, Boolean is_object_oriented, Boolean strongly_typed,
+                                     String[] reserved_words, String popular_editor, Integer release_year, String creator) {
         returnMessage returnval = null;
         if (id == null) {
             throw new RuntimeException("no language ID specified");
@@ -74,6 +76,18 @@ public class LanguagesImpl implements Languages {
 
             if (strongly_typed != null)
                 jsonPutString += "\"strongly_typed\" : " + strongly_typed + ",";
+
+            if (reserved_words != null)
+                jsonPutString+= " \"reserved_words\" : \"" + Arrays.toString(reserved_words) + "\",";
+
+            if (popular_editor != null)
+                jsonPutString += "\"popular_editor\" : " + popular_editor + ",";
+
+            if (release_year != null)
+                jsonPutString += "\"release_year\" : " + release_year + ",";
+
+            if (creator != null)
+                jsonPutString += "\"creator\" : " + creator + ",";
 
             if(jsonPutString.endsWith(","))
             {
@@ -181,7 +195,8 @@ public class LanguagesImpl implements Languages {
     }
 
     @Override
-    public AddLanguageReturnMessage addLanguage(String language, Boolean is_object_oriented, Boolean strongly_typed) {
+    public AddLanguageReturnMessage addLanguage(String language, Boolean is_object_oriented, Boolean strongly_typed,
+                                                String[] reserved_words, String popular_editor, Integer release_year, String creator) {
         AddLanguageReturnMessage returnval = null;
         try {
             String jsonPutString = "{";
@@ -193,6 +208,19 @@ public class LanguagesImpl implements Languages {
 
             if (strongly_typed != null)
                 jsonPutString += "\"strongly_typed\" : " + strongly_typed + ",";
+
+
+            if (reserved_words != null)
+                jsonPutString+= " \"reserved_words\" : \"" + Arrays.toString(reserved_words) + "\",";
+
+            if (popular_editor != null)
+                jsonPutString += "\"popular_editor\" : " + popular_editor + ",";
+
+            if (release_year != null)
+                jsonPutString += "\"release_year\" : " + release_year + ",";
+
+            if (creator != null)
+                jsonPutString += "\"creator\" : " + creator + ",";
 
             if(jsonPutString.endsWith(","))
             {
