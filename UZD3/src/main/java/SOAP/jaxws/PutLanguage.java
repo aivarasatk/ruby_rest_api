@@ -15,25 +15,35 @@ public class PutLanguage {
 
     @XmlElement(required = true, name = "id", namespace = "")
     private Integer id;
-    @XmlElement(name = "name", namespace = "")
-    private String name;
-    @XmlElement(name = "email", namespace = "")
-    private String email;
+    @XmlElement(name = "language", namespace = "")
+    private String language;
+    @XmlElement(name = "is_object_oriented", namespace = "")
+    private String is_object_oriented;
+    @XmlElement(name = "strongly_typed", namespace = "")
+    private String strongly_typed;
 
-    public String getName() {
-        return name;
+    public String getLanguage() {
+        return language;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
-    public String getEmail() {
-        return email;
+    public String getIs_object_oriented() {
+        return is_object_oriented;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setIs_object_oriented(String is_object_oriented) {
+        this.is_object_oriented = is_object_oriented;
+    }
+
+    public String getStrongly_typed() {
+        return strongly_typed;
+    }
+
+    public void setStrongly_typed(String strongly_typed) {
+        this.strongly_typed = strongly_typed;
     }
 
     public Integer getId() {
