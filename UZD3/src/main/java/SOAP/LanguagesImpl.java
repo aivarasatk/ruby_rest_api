@@ -78,16 +78,16 @@ public class LanguagesImpl implements Languages {
                 jsonPutString += "\"strongly_typed\" : " + strongly_typed + ",";
 
             if (reserved_words != null)
-                jsonPutString+= " \"reserved_words\" : \"" + Arrays.toString(reserved_words) + "\",";
+                jsonPutString+= " \"reserved_words\" : " + Arrays.toString(reserved_words) + ",";
 
             if (popular_editor != null)
-                jsonPutString += "\"popular_editor\" : " + popular_editor + ",";
+                jsonPutString += "\"popular_editor\" : \"" + popular_editor + "\",";
 
             if (release_year != null)
                 jsonPutString += "\"release_year\" : " + release_year + ",";
 
             if (creator != null)
-                jsonPutString += "\"creator\" : " + creator + ",";
+                jsonPutString += "\"creator\" : \"" + creator + "\",";
 
             if(jsonPutString.endsWith(","))
             {
@@ -211,16 +211,16 @@ public class LanguagesImpl implements Languages {
 
 
             if (reserved_words != null)
-                jsonPutString+= " \"reserved_words\" : \"" + Arrays.toString(reserved_words) + "\",";
+                jsonPutString+= " \"reserved_words\" : " + Arrays.toString(reserved_words) + ",";
 
             if (popular_editor != null)
-                jsonPutString += "\"popular_editor\" : " + popular_editor + ",";
+                jsonPutString += "\"popular_editor\" : \"" + popular_editor + "\",";
 
             if (release_year != null)
                 jsonPutString += "\"release_year\" : " + release_year + ",";
 
             if (creator != null)
-                jsonPutString += "\"creator\" : " + creator + ",";
+                jsonPutString += "\"creator\" : \"" + creator + "\",";
 
             if(jsonPutString.endsWith(","))
             {
