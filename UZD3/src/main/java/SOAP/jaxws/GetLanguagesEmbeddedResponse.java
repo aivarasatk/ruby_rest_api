@@ -24,4 +24,11 @@ public class GetLanguagesEmbeddedResponse {
         this._return = _return;
     }
 
+    public LanguageNotes[] get_return() {
+        return _return;
+    }
+
+    public void set_return(LanguageNotes[] _return) {
+        this._return = _return;
+    }
 }

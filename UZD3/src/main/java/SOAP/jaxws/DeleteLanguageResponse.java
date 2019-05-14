@@ -26,6 +26,14 @@ public class DeleteLanguageResponse {
         return this._return;
     }
 
+    public returnMessage get_return() {
+        return _return;
+    }
+
+    public void set_return(returnMessage _return) {
+        this._return = _return;
+    }
+
     /**
      *
      * @param _return

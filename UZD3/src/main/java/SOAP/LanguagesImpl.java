@@ -15,7 +15,7 @@ public class LanguagesImpl implements Languages {
     public LanguageWithNoteTitles getLanguage(Integer id) {
         LanguageWithNoteTitles languageWithNoteTitles = null;
         try {
-            URL url = new URL("http://web99:5001/languages/" + id);
+            URL url = new URL("http://web9969:5001/languages/" + id);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -39,7 +39,7 @@ public class LanguagesImpl implements Languages {
     public LanguageWithNoteTitles[] getLanguages() {
         LanguageWithNoteTitles[] languageWithNoteTitles = null;
         try {
-            URL url = new URL("http://web99:5001/languages");
+            URL url = new URL("http://web9969:5001/languages");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -80,7 +80,7 @@ public class LanguagesImpl implements Languages {
                 jsonPutString = jsonPutString.substring(0,jsonPutString.length() - 1);
             }
             jsonPutString += "}";
-            URL url = new URL("http://web99:5001/languages/" + Integer.toString(id));
+            URL url = new URL("http://web9969:5001/languages/" + Integer.toString(id));
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("PUT");
@@ -119,7 +119,7 @@ public class LanguagesImpl implements Languages {
         }
         try {
 
-            URL url = new URL("http://web99:5001/languages/" + Integer.toString(id));
+            URL url = new URL("http://web9969:5001/languages/" + Integer.toString(id));
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("DELETE");
@@ -156,7 +156,7 @@ public class LanguagesImpl implements Languages {
         }
         try {
 
-            URL url = new URL("http://web99:5001/languages/" + Integer.toString(id) + "/notes/" + title);
+            URL url = new URL("http://web9969:5001/languages/" + Integer.toString(id) + "/notes/" + title);
             conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("DELETE");
@@ -199,7 +199,7 @@ public class LanguagesImpl implements Languages {
                 jsonPutString = jsonPutString.substring(0,jsonPutString.length() - 1);
             }
             jsonPutString += "}";
-            URL url = new URL("http://web99:5001/languages");
+            URL url = new URL("http://web9969:5001/languages");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -236,7 +236,7 @@ public class LanguagesImpl implements Languages {
             throw new RuntimeException("no language ID specified");
         }
         try {
-            URL url = new URL("http://web99:5001/languages/" + Integer.toString(id) + "/notes");
+            URL url = new URL("http://web9969:5001/languages/" + Integer.toString(id) + "/notes");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");
@@ -279,7 +279,7 @@ public class LanguagesImpl implements Languages {
             }
 
             jsonPutString += "}";
-            URL url = new URL("http://web99:5001/languages/" + id + "/notes");
+            URL url = new URL("http://web9969:5001/languages/" + id + "/notes");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -311,7 +311,7 @@ public class LanguagesImpl implements Languages {
     public LanguageNotes[] getLanguagesEmbedded() {
         LanguageNotes[] LanguagesNotes = null;
         try {
-            URL url = new URL("http://web99:5001/languages?embedded=notes");
+            URL url = new URL("http://web9969:5001/languages?embedded=notes");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");

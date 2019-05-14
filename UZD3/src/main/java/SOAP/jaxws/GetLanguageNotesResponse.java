@@ -24,4 +24,11 @@ public class GetLanguageNotesResponse {
         this._return = _return;
     }
 
+    public Note[] get_return() {
+        return _return;
+    }
+
+    public void set_return(Note[] _return) {
+        this._return = _return;
+    }
 }

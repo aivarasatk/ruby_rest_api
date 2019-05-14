@@ -17,7 +17,11 @@ public class GetLanguagesResponse {
     @XmlElement(name = "return", namespace = "")
     private LanguageWithNoteTitles[] _return;
 
-    public LanguageWithNoteTitles[] getReturn() {
-        return this._return;
+    public LanguageWithNoteTitles[] get_return() {
+        return _return;
+    }
+
+    public void set_return(LanguageWithNoteTitles[] _return) {
+        this._return = _return;
     }
 }

@@ -6,12 +6,12 @@ services:
     ports:
     - 80:5002
     links:
-    - "web9969"
+    - "web996969"
     depends_on:
-    - web9969
+    - web996969
     networks:
     - mynet9969
-  web9969:
+  web996969:
     build: UZD2
     command: thin -R config.ru start -e production -p 5001
     ports:

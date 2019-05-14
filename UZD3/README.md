@@ -7,7 +7,7 @@ grazina vienos kalbos  informacija
 <S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
     <S:Body>
         <ns2:getLanguage xmlns:ns2="http://SOAP/">
-        	<id>4</id>
+        	<id>1</id>
         </ns2:getLanguage>
     </S:Body>
 </S:Envelope>
