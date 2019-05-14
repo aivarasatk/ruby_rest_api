@@ -23,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SOAP/LanguagesImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+            <state relative-caret-position="306">
+              <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,9 +174,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>arg</find>
-      <find>arg0</find>
-      <find>wrapperType</find>
       <find>name</find>
       <find>getpeo</find>
       <find>Getpeople</find>
@@ -198,18 +195,22 @@
       <find>deleteLanguageNote</find>
       <find>Person</find>
       <find>People</find>
-      <find>getLanguages</find>
       <find>deleteLanguage</find>
       <find>/Languages</find>
       <find>//web</find>
       <find>addLanguageNote</find>
       <find>application/x-www-form-urlencoded</find>
+      <find>getReturn</find>
+      <find>getLanguages</find>
+      <find>web99</find>
+      <find>web9969</find>
     </findStrings>
     <replaceStrings>
       <replace>Language</replace>
       <replace>Languages</replace>
       <replace>/languages</replace>
       <replace>//web99</replace>
+      <replace>web9969</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -257,7 +258,6 @@
         <option value="$PROJECT_DIR$/src/main/java/SOAP/AddLanguageReturnMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/SOAP/Languages.java" />
         <option value="$PROJECT_DIR$/src/main/java/SOAP/JsonToObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SOAP/LanguagesImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/SOAP/jaxws/PutLanguage.java" />
         <option value="$PROJECT_DIR$/src/main/java/SOAP/jaxws/AddLanguage.java" />
         <option value="$PROJECT_DIR$/src/main/java/SOAP/jaxws/GetLanguagesResponse.java" />
@@ -269,6 +269,7 @@
         <option value="$PROJECT_DIR$/src/main/java/SOAP/jaxws/GetLanguageResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/SOAP/jaxws/GetLanguagesEmbeddedResponse.java" />
         <option value="$PROJECT_DIR$/src/main/java/SOAP/jaxws/PutLanguageResponse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SOAP/LanguagesImpl.java" />
       </list>
     </option>
   </component>
@@ -823,8 +824,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SOAP/LanguagesImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="38" column="52" lean-forward="true" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
+        <state relative-caret-position="306">
+          <caret line="43" column="41" lean-forward="true" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
