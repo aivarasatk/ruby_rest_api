@@ -1,0 +1,3 @@
+[submodule "2lab/SOA"]
+	path = 2lab/SOA
+	url = https://github.com/plssts/SOA

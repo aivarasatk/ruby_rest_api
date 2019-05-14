@@ -1,0 +1,34 @@
+version: '2'
+services:
+  soap:
+    build: out/artifacts/WebServices_jar
+    command: java -cp WebServices.jar SOAP.endpoint.LanguagesPublisher
+    ports:
+    - 80:5002
+    links:
+    - "web99"
+    depends_on:
+    - web99
+    networks:
+    - mynet
+  web99:
+    build: UZD2
+    command: thin -R config.ru start -e production -p 5001
+    ports:
+    - 5001:5001
+    links:
+    - "friendservice99"
+    depends_on:
+    - friendservice99
+    networks:
+    - mynet
+  friendservice99:
+    build: UZD2/NotesApi
+    command: python app.py
+    ports:
+    - 6969:6969
+    networks:
+    - mynet
+
+networks:
+  mynet:
