@@ -18,9 +18,9 @@ public class PutLanguage {
     @XmlElement(name = "language", namespace = "")
     private String language;
     @XmlElement(name = "is_object_oriented", namespace = "")
-    private String is_object_oriented;
+    private boolean is_object_oriented;
     @XmlElement(name = "strongly_typed", namespace = "")
-    private String strongly_typed;
+    private boolean strongly_typed;
 
     public String getLanguage() {
         return language;
@@ -30,19 +30,19 @@ public class PutLanguage {
         this.language = language;
     }
 
-    public String getIs_object_oriented() {
+    public boolean getIs_object_oriented() {
         return is_object_oriented;
     }
 
-    public void setIs_object_oriented(String is_object_oriented) {
+    public void setIs_object_oriented(boolean is_object_oriented) {
         this.is_object_oriented = is_object_oriented;
     }
 
-    public String getStrongly_typed() {
+    public boolean getStrongly_typed() {
         return strongly_typed;
     }
 
-    public void setStrongly_typed(String strongly_typed) {
+    public void setStrongly_typed(boolean strongly_typed) {
         this.strongly_typed = strongly_typed;
     }
 
