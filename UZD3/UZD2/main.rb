@@ -72,6 +72,7 @@ class RequestHelper < Sinatra::Application
 				
 				fakeArrayCopy[0].notes = notes
 				
+				fakeArray2 = []
 				fakeArray2.push(fakeArrayCopy[0])
 				status 200
 				response.body = JSON.generate fakeArray2
