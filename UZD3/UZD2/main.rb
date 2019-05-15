@@ -35,8 +35,15 @@ class RequestHelper < Sinatra::Application
 		
 		response.headers['Content-Type'] = "application/json"
 		if embedded == 'notes' then
-			if langId != nil then
-				language = languageService.getLanguage(Integer(langId))
+				id = nil
+				begin
+					id = Integer(langId)
+				rescue
+					status 404
+					response.body = '{"message":"Failed id parse"}'
+					return
+				end
+				language = languageService.getLanguage(id)
 				if language == nil then 
 					status 404
 					message = {"messsage" => "Language does not exist"}
@@ -65,10 +72,10 @@ class RequestHelper < Sinatra::Application
 				
 				fakeArrayCopy[0].notes = notes
 				
-				fakeArray.push(fakeArrayCopy[0])
+				fakeArray2.push(fakeArrayCopy[0])
 				status 200
-				response.body = JSON.generate fakeArray
-				
+				response.body = JSON.generate fakeArray2
+				return
 			else
 				languages = languageService.getLanguages
 				languagesAndNotes = languages.map(&:clone)
