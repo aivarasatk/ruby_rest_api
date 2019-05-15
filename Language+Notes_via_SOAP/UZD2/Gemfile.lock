@@ -1,0 +1,108 @@
+
+Gemfile.lock:
+Using username "aiat3634".
+aiat3634@193.219.91.103's password:
+Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.4.0-142-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+New release '18.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Sun Mar 10 16:00:12 2019 from 213.159.51.67
+aiat3634@ubuntu:~$ cd ruby_rest_app/
+aiat3634@ubuntu:~/ruby_rest_app$ nano ruby-thin-image
+aiat3634@ubuntu:~/ruby_rest_app$ sudo docker images ls
+[sudo] password for aiat3634:
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+aiat3634@ubuntu:~/ruby_rest_app$ sudo docker images ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+aiat3634@ubuntu:~/ruby_rest_app$ sudo docker build  -t ruby-image -f ruby-thin-image .
+Sending build context to Docker daemon  94.21kB
+Step 1/10 : FROM alpine:latest
+ ---> 5cb3aa00f899
+Step 2/10 : RUN apk update && apk upgrade &&  apk add --update ruby-dev build-base   libxml2-dev libxslt-dev pcre-dev libffi-dev   mariadb-dev postgresql-dev
+ ---> Using cache
+ ---> 5a052520e42d
+Step 3/10 : RUN apk add ruby ruby-bundler
+ ---> Using cache
+ ---> 402b24ca370f
+Step 4/10 : RUN mkdir /usr/app
+ ---> Using cache
+ ---> ef0641381d0d
+Step 5/10 : WORKDIR /usr/app
+ ---> Using cache
+ ---> 17928c9932bf
+Step 6/10 : COPY Gemfile /usr/app/
+ ---> Using cache
+ ---> 433307c9a7ba
+Step 7/10 : COPY Gemfile.lock /usr/app/
+ ---> Using cache
+ ---> 2a9a7cacd452
+Step 8/10 : RUN bundle install
+ ---> Using cache
+ ---> 1a8eaf4cef92
+Step 9/10 : COPY ./ruby_rest_api /usr/app
+ ---> Using cache
+ ---> d6632b0f4ba1
+Step 10/10 : CMD ["thin", "-R", "config.ru", "start", "-e", "production", "-p", "5000"]
+ ---> Using cache
+ ---> a9011eb41a34
+Successfully built a9011eb41a34
+Successfully tagged ruby-image:latest
+aiat3634@ubuntu:~/ruby_rest_app$ sudo docker images ls
+\REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+aiat3634@ubuntu:~/ruby_rest_app$ sudo docker images ls
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+aiat3634@ubuntu:~/ruby_rest_app$ sudo docker run -d -p 80:5000 ruby-image
+95a9cab9be2775485235036e23ef87b828ad36b04e71eb5d858f3c0fd8167bac
+aiat3634@ubuntu:~/ruby_rest_app$ sudo docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
+95a9cab9be27        ruby-image          "thin -R config.ru s…"   6 seconds ago       Up 4 seconds        0.0.0.0:80->5000/tcp   musing_archimedes
+aiat3634@ubuntu:~/ruby_rest_app$ nano ruby-thin-image
+aiat3634@ubuntu:~/ruby_rest_app$ ls
+Gemfile  Gemfile.lock  config.ru  ruby-thin-image  ruby_rest_api
+aiat3634@ubuntu:~/ruby_rest_app$ touch config.ru
+aiat3634@ubuntu:~/ruby_rest_app$ ls
+Gemfile  Gemfile.lock  config.ru  ruby-thin-image  ruby_rest_api
+aiat3634@ubuntu:~/ruby_rest_app$ nano config.ru
+aiat3634@ubuntu:~/ruby_rest_app$ nano Gemfile
+aiat3634@ubuntu:~/ruby_rest_app$ ls
+Gemfile  Gemfile.lock  config.ru  ruby-thin-image  ruby_rest_api
+aiat3634@ubuntu:~/ruby_rest_app$ nano ruby-thin-image
+aiat3634@ubuntu:~/ruby_rest_app$ ls
+Gemfile  Gemfile.lock  config.ru  ruby-thin-image  ruby_rest_api
+aiat3634@ubuntu:~/ruby_rest_app$ nano ruby-thin-image
+aiat3634@ubuntu:~/ruby_rest_app$ nano Gemfile.lock
+  GNU nano 2.5.3                                               File: Gemfile.lock
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    daemons (1.3.1)
+    eventmachine (1.2.7)
+    mustermann (1.0.3)
+    rack (2.0.6)
+    rack-protection (2.0.5)
+      rack
+    sinatra (2.0.5)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.5)
+      tilt (~> 2.0)
+    thin (1.7.2)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
+    tilt (2.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  sinatra
+  thin
+
+BUNDLED WITH
+   1.17.3
