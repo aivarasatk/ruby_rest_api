@@ -35,14 +35,42 @@ class RequestHelper < Sinatra::Application
 		
 		response.headers['Content-Type'] = "application/json"
 		if embedded == 'notes' then
-				id = nil
+				
+			id = nil
 				begin
 					id = Integer(langId)
 				rescue
-					status 404
-					response.body = '{"message":"Failed id parse"}'
+					languages = languageService.getLanguages
+					languagesAndNotes = languages.map(&:clone)
+					languages.each{ |language|
+						notes = []
+						noteTitles = language.notes
+						noteTitles.each{ |title|
+							begin
+								res = notesService.getNoteForTitle(title)
+								if res.code.to_i == 200 then
+									resData = (JSON.parse res.body)['data']
+									notes.push(resData)
+								end
+							rescue
+								message = {"messsage" => "Could not get a response from service"}
+								notes = [message]
+								break
+							end
+						}
+					
+						languagesAndNotes.each{ |withNotes|
+							if withNotes.id == language.id then
+								withNotes.notes = notes
+							end
+						}
+					
+					}
+					status 200
+					response.body = JSON.generate languagesAndNotes
 					return
 				end
+				
 				language = languageService.getLanguage(id)
 				if language == nil then 
 					status 404
@@ -77,36 +105,6 @@ class RequestHelper < Sinatra::Application
 				status 200
 				response.body = JSON.generate fakeArray2
 				return
-			else
-				languages = languageService.getLanguages
-				languagesAndNotes = languages.map(&:clone)
-				languages.each{ |language|
-					notes = []
-					noteTitles = language.notes
-					noteTitles.each{ |title|
-						begin
-							res = notesService.getNoteForTitle(title)
-							if res.code.to_i == 200 then
-								resData = (JSON.parse res.body)['data']
-								notes.push(resData)
-							end
-						rescue
-							message = {"messsage" => "Could not get a response from service"}
-							notes = [message]
-							break
-						end
-					}
-					
-					languagesAndNotes.each{ |withNotes|
-						if withNotes.id == language.id then
-							withNotes.notes = notes
-						end
-					}
-					
-				}
-				status 200
-				response.body = JSON.generate languagesAndNotes
-			end
 		else
 			status 200
 			response.body = languageService.getAllAsJson
