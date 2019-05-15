@@ -36,7 +36,7 @@ class RequestHelper < Sinatra::Application
 		response.headers['Content-Type'] = "application/json"
 		if embedded == 'notes' then
 			if langId != nil then
-				language = languageService.getLanguage(Integer(languageId))
+				language = languageService.getLanguage(Integer(langId))
 				if language == nil then 
 					status 404
 					message = {"messsage" => "Language does not exist"}
