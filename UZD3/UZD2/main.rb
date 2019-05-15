@@ -43,10 +43,12 @@ class RequestHelper < Sinatra::Application
 					response.body = JSON.generate message
 					return
 				end
-				languageCopy = language.map(&:clone)
+				fakeArray = []
+				fakeArray.push(language)
+				fakeArrayCopy = fakeArray.map(&:clone)
 				
 				notes = []
-				noteTitles = languageCopy.notes
+				noteTitles = fakeArrayCopy[0].notes
 				noteTitles.each{ |title|
 					begin
 						res = notesService.getNoteForTitle(title)
@@ -61,9 +63,9 @@ class RequestHelper < Sinatra::Application
 					end
 				}
 				
-				languageCopy.notes = notes
-				fakeArray = []
-				fakeArray.push(languageCopy)
+				fakeArrayCopy[0].notes = notes
+				
+				fakeArray.push(fakeArrayCopy[0])
 				status 200
 				response.body = JSON.generate fakeArray
 				
