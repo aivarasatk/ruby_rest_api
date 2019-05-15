@@ -15,13 +15,13 @@ public class AddLanguageNote {
 
     @XmlElement(required = true, name = "id", namespace = "")
     private Integer id;
-    @XmlElement(name = "title", namespace = "")
+    @XmlElement(required = true, name = "title", namespace = "")
     private String title;
-    @XmlElement(name = "comment", namespace = "")
+    @XmlElement(required = true,name = "comment", namespace = "")
     private String comment;
-    @XmlElement(name = "expiration", namespace = "")
+    @XmlElement(required = true,name = "expiration", namespace = "")
     private String expiration;
-    @XmlElement(name = "author", namespace = "")
+    @XmlElement(required = true,name = "author", namespace = "")
     private String author;
 
     public String getAuthor() {

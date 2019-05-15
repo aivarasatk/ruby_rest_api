@@ -16,6 +16,16 @@ class LanguageService
 	def getLanguages
 		languages
 	end
+	
+	def getLanguage(languageId)
+		@languages.each{ |language|
+			if language.id == languageId then
+				return language
+			end
+		}
+		nil
+	end
+	
 	def getAllAsJson
 		objectJsonArray = []
 		@languages.each{ |language|

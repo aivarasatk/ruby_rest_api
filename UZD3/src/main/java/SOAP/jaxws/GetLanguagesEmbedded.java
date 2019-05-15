@@ -13,4 +13,14 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "getLanguagesEmbedded", namespace = "http://SOAP/")
 public class GetLanguagesEmbedded {
 
+    @XmlElement(name = "id", namespace = "")
+    private Integer id;
+
+    public Integer getId() {
+        return this.id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

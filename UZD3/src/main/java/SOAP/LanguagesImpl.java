@@ -336,10 +336,16 @@ public class LanguagesImpl implements Languages {
     }
 
     @Override
-    public LanguageNotes[] getLanguagesEmbedded() {
+    public LanguageNotes[] getLanguagesEmbedded(Integer id) {
         LanguageNotes[] LanguagesNotes = null;
         try {
-            URL url = new URL("http://web9969:5001/languages?embedded=notes");
+            URL url = null;
+            if(id != null){
+                url = new URL("http://web9969:5001/languages?embedded=notes&id=" + id);
+            }else{
+                url = new URL("http://web9969:5001/languages?embedded=notes");
+            }
+
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/json");

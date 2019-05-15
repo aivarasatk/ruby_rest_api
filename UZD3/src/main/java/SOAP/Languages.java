@@ -13,7 +13,7 @@ import javax.jws.soap.SOAPBinding.Use;
 public interface Languages {
 
 	@WebMethod LanguageWithNoteTitles[] getLanguages();
-	@WebMethod LanguageNotes[] getLanguagesEmbedded();
+	@WebMethod LanguageNotes[] getLanguagesEmbedded(@WebParam(name="id") Integer id);
 	@WebMethod LanguageWithNoteTitles getLanguage(@WebParam(name="id") Integer id);
 	@WebMethod Note[] getLanguageNotes( @WebParam(name="id") Integer id);
 
