@@ -1,5 +1,8 @@
-#Service launch
+# Service launch
 docker-compose up --build -d <br>
+
+## Credit
+Thanks to Tomas V. for providing his solution for integrating SOAP
 
 ## Access
 {url}/languages?wsdl <br>
